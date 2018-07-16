@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/submarine.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/PlayerSprite.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/PlayerCameraZone.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -10,27 +11,67 @@ custom_solver_bias = 0.0
 radius = 23.2373
 height = 67.0209
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 230.217
+
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 13
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
+linear_speed = 550
+movement_dampening = 0.05
+health = 100
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( -1, 5 )
 rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="CollisionTimer" type="Timer" parent="." index="2"]
+
+process_mode = 0
+wait_time = 0.75
+one_shot = true
+autostart = false
+
+[node name="CameraZone" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZone" index="0"]
+
+shape = SubResource( 2 )
+
+[connection signal="timeout" from="CollisionTimer" to="." method="_on_CollisionTimer_timeout"]
+
+[connection signal="body_entered" from="CameraZone" to="CameraZone" method="_on_CameraZone_body_entered"]
+
+[connection signal="body_exited" from="CameraZone" to="CameraZone" method="_on_CameraZone_body_exited"]
 
 

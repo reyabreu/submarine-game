@@ -1,26 +1,39 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Sprites/shark.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Target.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/shark.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/TargetSprite.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 34.1745
-height = 51.3562
+radius = 31.4821
+height = 42.1395
 
 [node name="Target" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 4
+collision_mask = 2
 collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+linear_speed = 200
+player_damage = 10
+horizontal_dampening = 0.05
+vertical_dampening = 0.02
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( -8, 0 )
 rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
