@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Characters/NPC/Shark/Shark.tscn" type="PackedScene" id=1]
+
+[node name="Surface" type="Node2D" index="0"]
+
+[node name="Shark" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 1044.78, 528.682 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+

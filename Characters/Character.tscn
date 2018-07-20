@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="Character" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -59.8324, -5.00471, -50.0423, -23.1865, -20.8465, -35.0745, -0.0424194, -51.8577, 8.69881, -33.8508, 26.8806, -24.9347, 56.9504, -31.9277, 43.3141, -6.40331, 56.2511, 17.7225, 33.8736, 11.7785, 17.0904, 23.1421, 25.6568, 46.5686, -8.08435, 29.6106, -19.9724, 29.6106, -43.0493, 43.2469, -37.2801, 23.8414, -51.9653, 14.226 )
+
+
