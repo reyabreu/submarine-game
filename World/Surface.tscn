@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Art/surface.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Art/deep-sea1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/deep-sea2.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=4]
+
+[node name="Surface" type="Node2D" index="0"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="surface" type="Sprite" parent="ParallaxBackground" index="0"]
+
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="deep-sea1" type="Sprite" parent="." index="1"]
+
+position = Vector2( 0, 1080 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="deep-sea2" type="Sprite" parent="." index="2"]
+
+position = Vector2( 0, 2150 )
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="Player" parent="." index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 940, 610 )
+
+

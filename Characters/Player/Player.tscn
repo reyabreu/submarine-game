@@ -1,0 +1,177 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Characters/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/submarine.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Player/PlayerSprite.gd" type="Script" id=3]
+[ext_resource path="res://Characters/Player/PlayerCameraZone.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Art/bubble.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Player/Particles2D.gd" type="Script" id=6]
+[ext_resource path="res://Cameras/PlayerCamera.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 48.9195
+height = 83.7313
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 116.823
+
+[sub_resource type="Curve" id=3]
+
+min_value = -200.0
+max_value = 200.0
+bake_resolution = 100
+_data = [ Vector2( 0.00258357, 51.5625 ), 0.0, 0.0, 0, 0, Vector2( 0.997416, -189.063 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=6]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0.000248276, 0.779297 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+
+flags = 4
+width = 2048
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 5, 5, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 10.0
+flatness = 0.0
+gravity = Vector3( 0, -100, 0 )
+initial_velocity = 75.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+linear_accel_curve = SubResource( 4 )
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 7 )
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Resource", "Scale", "Spread", "Tangential Accel", "Trail" ]
+
+[node name="Player" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 2
+collision_mask = 5
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+linear_speed = 550
+movement_dampening = 0.025
+health = 100
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -1, 5 )
+rotation = 1.5708
+shape = SubResource( 1 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="CollisionTimer" type="Timer" parent="." index="2"]
+
+process_mode = 0
+wait_time = 0.75
+one_shot = true
+autostart = false
+
+[node name="CameraZone" type="Area2D" parent="." index="3"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZone" index="0"]
+
+position = Vector2( 180, 0 )
+shape = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="." index="4"]
+
+show_behind_parent = true
+rotation = 3.14159
+emitting = true
+amount = 40
+lifetime = 2.5
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 5 )
+texture = ExtResource( 5 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+script = ExtResource( 6 )
+_sections_unfolded = [ "Drawing", "Material", "Pause", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
+
+[node name="PlayerCamera" parent="." index="5" instance=ExtResource( 7 )]
+
+[connection signal="timeout" from="CollisionTimer" to="." method="_on_CollisionTimer_timeout"]
+
+[connection signal="body_entered" from="CameraZone" to="CameraZone" method="_on_CameraZone_body_entered"]
+
+[connection signal="body_exited" from="CameraZone" to="CameraZone" method="_on_CameraZone_body_exited"]
+
+

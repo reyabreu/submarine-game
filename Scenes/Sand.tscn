@@ -1,0 +1,127 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_001.atlastex" type="Texture" id=1]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_002.atlastex" type="Texture" id=2]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_003.atlastex" type="Texture" id=3]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_004.atlastex" type="Texture" id=4]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_005.atlastex" type="Texture" id=5]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_006.atlastex" type="Texture" id=6]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_007.atlastex" type="Texture" id=7]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_008.atlastex" type="Texture" id=8]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_009.atlastex" type="Texture" id=9]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_018.atlastex" type="Texture" id=10]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_019.atlastex" type="Texture" id=11]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_020.atlastex" type="Texture" id=12]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_021.atlastex" type="Texture" id=13]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_022.atlastex" type="Texture" id=14]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_023.atlastex" type="Texture" id=15]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_024.atlastex" type="Texture" id=16]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_025.atlastex" type="Texture" id=17]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_026.atlastex" type="Texture" id=18]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_027.atlastex" type="Texture" id=19]
+[ext_resource path="res://Assets/Spritesheet/fishSpritesheet.fishTile_126.atlastex" type="Texture" id=20]
+
+[node name="Sand" type="Node2D" index="0"]
+
+[node name="fishSpritesheet.fishTile_001" type="Sprite" parent="." index="0"]
+
+position = Vector2( 64, 64 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="fishSpritesheet.fishTile_002" type="Sprite" parent="." index="1"]
+
+position = Vector2( 448, 256 )
+texture = ExtResource( 2 )
+
+[node name="fishSpritesheet.fishTile_003" type="Sprite" parent="." index="2"]
+
+position = Vector2( 448, 64 )
+texture = ExtResource( 3 )
+
+[node name="fishSpritesheet.fishTile_004" type="Sprite" parent="." index="3"]
+
+position = Vector2( 256, 352 )
+texture = ExtResource( 4 )
+
+[node name="fishSpritesheet.fishTile_005" type="Sprite" parent="." index="4"]
+
+position = Vector2( 352, 352 )
+texture = ExtResource( 5 )
+
+[node name="fishSpritesheet.fishTile_006" type="Sprite" parent="." index="5"]
+
+position = Vector2( 448, 160 )
+texture = ExtResource( 6 )
+
+[node name="fishSpritesheet.fishTile_007" type="Sprite" parent="." index="6"]
+
+position = Vector2( 160, 256 )
+texture = ExtResource( 7 )
+
+[node name="fishSpritesheet.fishTile_008" type="Sprite" parent="." index="7"]
+
+position = Vector2( 160, 352 )
+texture = ExtResource( 8 )
+
+[node name="fishSpritesheet.fishTile_009" type="Sprite" parent="." index="8"]
+
+position = Vector2( 352, 256 )
+texture = ExtResource( 9 )
+
+[node name="fishSpritesheet.fishTile_018" type="Sprite" parent="." index="9"]
+
+position = Vector2( 256, 64 )
+texture = ExtResource( 10 )
+
+[node name="fishSpritesheet.fishTile_019" type="Sprite" parent="." index="10"]
+
+position = Vector2( 352, 64 )
+texture = ExtResource( 11 )
+
+[node name="fishSpritesheet.fishTile_020" type="Sprite" parent="." index="11"]
+
+position = Vector2( 448, 352 )
+texture = ExtResource( 12 )
+
+[node name="fishSpritesheet.fishTile_021" type="Sprite" parent="." index="12"]
+
+position = Vector2( 64, 160 )
+texture = ExtResource( 13 )
+
+[node name="fishSpritesheet.fishTile_022" type="Sprite" parent="." index="13"]
+
+position = Vector2( 160, 160 )
+texture = ExtResource( 14 )
+
+[node name="fishSpritesheet.fishTile_023" type="Sprite" parent="." index="14"]
+
+position = Vector2( 256, 160 )
+texture = ExtResource( 15 )
+
+[node name="fishSpritesheet.fishTile_024" type="Sprite" parent="." index="15"]
+
+position = Vector2( 352, 160 )
+texture = ExtResource( 16 )
+
+[node name="fishSpritesheet.fishTile_025" type="Sprite" parent="." index="16"]
+
+position = Vector2( 64, 256 )
+texture = ExtResource( 17 )
+
+[node name="fishSpritesheet.fishTile_026" type="Sprite" parent="." index="17"]
+
+position = Vector2( 64, 352 )
+texture = ExtResource( 18 )
+
+[node name="fishSpritesheet.fishTile_027" type="Sprite" parent="." index="18"]
+
+position = Vector2( 256, 256 )
+texture = ExtResource( 19 )
+
+[node name="fishSpritesheet.fishTile_126" type="Sprite" parent="." index="19"]
+
+position = Vector2( 160, 64 )
+texture = ExtResource( 20 )
+
+
